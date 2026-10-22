@@ -1,0 +1,180 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Pennywise - Expense Tracker</title>
+
+    <!-- External CSS file -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <main class="app">
+
+        <!-- Header -->
+        <header>
+            <div class="brand">
+                <div class="brand-icon">₹</div>
+
+                <div>
+                    <h1>Pennywise</h1>
+                    <p class="subtitle">Your money, in one place.</p>
+                </div>
+            </div>
+
+            <div class="today" id="today"></div>
+        </header>
+
+        <!-- Welcome section -->
+        <section class="welcome">
+            <h2>Your Expense Dashboard</h2>
+            <p>Keep track of your spending, one transaction at a time.</p>
+        </section>
+
+        <!-- Summary cards -->
+        <section class="summary">
+
+            <article class="summary-card">
+                <div class="summary-top">
+                    <span class="summary-label">Total Income</span>
+                    <span class="summary-icon">↗</span>
+                </div>
+
+                <h3 id="totalIncome">₹0.00</h3>
+            </article>
+
+            <article class="summary-card">
+                <div class="summary-top">
+                    <span class="summary-label">Total Expenses</span>
+                    <span class="summary-icon">↘</span>
+                </div>
+
+                <h3 id="totalExpenses">₹0.00</h3>
+            </article>
+
+            <article class="summary-card">
+                <div class="summary-top">
+                    <span class="summary-label">Remaining Balance</span>
+                    <span class="summary-icon">◈</span>
+                </div>
+
+                <h3 id="balance">₹0.00</h3>
+            </article>
+
+        </section>
+
+        <!-- Main content -->
+        <section class="content">
+
+            <!-- Add transaction form -->
+            <form class="panel" id="transactionForm">
+
+                <h2>Add Transaction</h2>
+
+                <p class="panel-description">
+                    Enter the details below to record a transaction.
+                </p>
+
+                <label for="description">Description</label>
+                <input
+                    type="text"
+                    id="description"
+                    name="description"
+                    maxlength="70"
+                    placeholder="e.g. College lunch"
+                    required
+                >
+
+                <label for="amount">Amount (₹)</label>
+                <input
+                    type="number"
+                    id="amount"
+                    name="amount"
+                    min="0.01"
+                    max="100000000"
+                    step="0.01"
+                    placeholder="e.g. 150"
+                    required
+                >
+
+                <label for="type">Transaction Type</label>
+                <select id="type" name="type">
+                    <option value="expense">Expense</option>
+                    <option value="income">Income</option>
+                </select>
+
+                <label for="category">Category</label>
+                <select id="category" name="category">
+                    <option>Food</option>
+                    <option>Travel</option>
+                    <option>Shopping</option>
+                    <option>Education</option>
+                    <option>Entertainment</option>
+                    <option>Bills</option>
+                    <option>Health</option>
+                    <option>Salary</option>
+                    <option>Other</option>
+                </select>
+
+                <label for="date">Date</label>
+                <input
+                    type="date"
+                    id="date"
+                    name="date"
+                    required
+                >
+
+                <button class="primary" type="submit">
+                    + Add Transaction
+                </button>
+
+                <p class="notice">
+                    Your transactions are saved in this browser.
+                </p>
+
+            </form>
+
+            <!-- Recent transactions -->
+            <section class="panel">
+
+                <div class="transactions-header">
+                    <h2>Recent Transactions</h2>
+
+                    <select
+                        id="filter"
+                        class="filter"
+                        aria-label="Filter transactions"
+                    >
+                        <option value="all">All Types</option>
+                        <option value="expense">Expenses</option>
+                        <option value="income">Income</option>
+                    </select>
+                </div>
+
+                <!-- JavaScript displays transactions here -->
+                <div
+                    id="transactionList"
+                    class="transaction-list"
+                    aria-live="polite"
+                ></div>
+
+            </section>
+
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            Personal Expense Tracker | HTML, CSS and JavaScript
+        </footer>
+
+    </main>
+
+    <!-- External JavaScript file -->
+    <script src="script.js"></script>
+
+</body>
+</html>
